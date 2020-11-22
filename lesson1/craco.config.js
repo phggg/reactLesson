@@ -14,7 +14,7 @@ const {
   POSTCSS_MODES,
 } = require('@craco/craco')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
-const CracoLessPlugin = require('craco-less')
+// const CracoLessPlugin = require('craco-less')
 const WebpackBar = require('webpackbar')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
 const fastRefreshCracoPlugin = require('craco-fast-refresh')
@@ -22,9 +22,9 @@ const CracoVtkPlugin = require('craco-vtk')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const webpack = require('webpack')
-const Dashboard = require('webpack-dashboard');
-const DashboardPlugin = require('webpack-dashboard/plugin');
-const dashboard = new Dashboard();
+// const Dashboard = require('webpack-dashboard');
+// const DashboardPlugin = require('webpack-dashboard/plugin');
+// const dashboard = new Dashboard();
 
 const path = require('path')
 
