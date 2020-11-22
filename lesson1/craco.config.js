@@ -51,7 +51,7 @@ module.exports = {
             cwd: process.cwd(),
           }),
           // webpack-dev-server 强化插件
-          new DashboardPlugin(dashboard.setData),
+          // new DashboardPlugin(dashboard.setData),
           // new webpack.HotModuleReplacementPlugin(),
         ], [],
       ),

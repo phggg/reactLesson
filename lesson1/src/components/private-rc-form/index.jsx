@@ -5,6 +5,7 @@ export default function createForm(Cmp) {
     constructor(props) {
       super(props)
       this.state = {}
+      this.options = {}
     }
 
     handleChange = (e) => {
@@ -14,7 +15,8 @@ export default function createForm(Cmp) {
       })
     }
 
-    getFieldDecorator = (field) => InputCmp => {
+    getFieldDecorator = (field, options) => InputCmp => {
+      this.options[field] = options
       return React.cloneElement(InputCmp, {
         name: field,
         value: this.state[field] || '',
@@ -30,12 +32,33 @@ export default function createForm(Cmp) {
       return this.state
     }
 
+    validateFields = callback => {
+      let err = []
+      // 校验 校验规则 this.options
+      // 校验的值this.state
+      for(let field in this.options){
+        // 判断state[field]是否是undefined
+        if(!this.state[field]){
+          err.push({
+            [field]: this.options[field]
+          })
+        }
+      }
+      if(err.length === 0) {
+        // 校验成功
+        callback(null, this.state)
+      } else {
+        callback(err, this.state)
+      }
+    }
+
     getForm = () => {
       return {
         form: {
           getFieldDecorator: this.getFieldDecorator,
           setFieldsValue: this.setFieldsValue,
           getFieldsValue: this.getFieldsValue,
+          validateFields: this.validateFields,
         },
       }
     }
