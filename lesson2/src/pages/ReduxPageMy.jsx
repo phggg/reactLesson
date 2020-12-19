@@ -17,9 +17,9 @@ const ReduxPageMy = () => {
     //     payload: 1
     //   })
     // }, 1000)
-    store.dispatch(() => {
+    store.dispatch((dispatch, getState) => {
       setTimeout(() => {
-        store.dispatch({type: 'ADD'})
+        dispatch({type: 'ADD'})
       }, 1000)
     })
   }
