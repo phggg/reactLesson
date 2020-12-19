@@ -1,9 +1,10 @@
-import ReduxPage from "./pages/ReduxPage";
+import ReduxPageMy from "./pages/ReduxPageMy";
 
 export default function App(props) {
   return (
     <div>
-      <ReduxPage />
+      {/*<ReduxPage />*/}
+      <ReduxPageMy />
     </div>
   );
 }
