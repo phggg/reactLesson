@@ -1,4 +1,10 @@
-const createStore = (reducer) => {
+const createStore = (reducer, enhancer) => {
+
+  if(enhancer){
+    // enhancer 是用于加强store.dispatch的
+    return enhancer(createStore)(reducer)
+  }
+
   // store state
   let currentState
   // 监听函数数组
