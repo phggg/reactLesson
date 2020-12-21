@@ -35,9 +35,8 @@ const thunk = ({dispatch, getState}) => {
       console.log(dispatch)
       if (typeof action === 'function') {
         return action(dispatch, getState)
-      } else {
-        return next(action)
       }
+      return next(action)
     }
   }
 }
