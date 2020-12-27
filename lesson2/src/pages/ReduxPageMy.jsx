@@ -28,6 +28,13 @@ const ReduxPageMy = () => {
     })
   }
 
+  const add2 = () => {
+    store.dispatch({
+      type: 'ADD2',
+      payload: 100
+    })
+  }
+
   useEffect(() => {
     // * 重点：有订阅，一定得有取消订阅的操作
     const unSubscribe = store.subscribe(() => {
@@ -38,9 +45,13 @@ const ReduxPageMy = () => {
   return (
     <div>
       <h3>ReduxPage</h3>
-      <div>{store.getState()}</div>
+      {/*<div>{store.getState()}</div>*/}
+      <p>{store.getState().count}</p>
       <button onClick={add}>add</button>
       <button onClick={asyncAdd}>asyncAdd</button>
+
+      <p>{store.getState().count2.num}</p>
+      <button onClick={add2}>add2</button>
     </div>
   )
 }

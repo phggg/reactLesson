@@ -1,14 +1,25 @@
-import {createStore, applyMiddleware} from "../TryRedux";
-// import {createStore, applyMiddleware} from "redux";
+import {createStore, applyMiddleware, combineReducers} from "../TryRedux";
+// import {combineReducers} from "redux";
 // import thunk from "redux-thunk"; //异步解决方案
 // import logger from "redux-logger"; // 打印日志
 
-export const counterReducer = (state = 0, {type, payload = 1}) => {
+export const countReducer = (state = 0, {type, payload = 1}) => {
   switch (type) {
     case 'ADD':
       return state + payload
     case 'MINUS':
       return state - payload
+    default:
+      return state
+  }
+}
+
+export const countReducer2 = (state = {num: 0}, {type, payload = 1}) => {
+  switch (type) {
+    case 'ADD2':
+      return {...state, num: state.num + payload}
+    case 'MINUS2':
+      return {...state, num: state.num - payload}
     default:
       return state
   }
@@ -65,6 +76,10 @@ const logger = ({dispatch, getState}) => {
 }
 
 // logger要作为applyMiddleware的最后一个参数，不然不能保证action是plain object
-const store = createStore(counterReducer, applyMiddleware(logger2, thunk, logger))
+const store = createStore(
+  // counterReducer,
+  combineReducers({count: countReducer, count2: countReducer2}),
+  applyMiddleware(logger2, thunk, logger)
+)
 
 export default store
