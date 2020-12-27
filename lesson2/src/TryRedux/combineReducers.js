@@ -7,7 +7,7 @@ const combineReducers = reducers => (state = {}, action) => {
     nextState[key] = reducer(state[key], action)
     hasChange = hasChange || nextState[key] !== state[key]
   }
-  console.log(hasChange)
+  hasChange = hasChange || Object.keys(nextState).length === Object.keys(state).length
   return hasChange ? nextState : state
 }
 
