@@ -30,7 +30,7 @@ const logger2 = ({dispatch, getState}) => {
   return next => {
     console.log(next)
     return action => {
-      console.log('----------')
+      console.log('----------111')
       return next(action)
     }
   }
@@ -38,12 +38,12 @@ const logger2 = ({dispatch, getState}) => {
 
 const thunk = ({dispatch, getState}) => {
   return next => {
-    console.log('thunk')
-    console.log(next)
+    // console.log('thunk')
+    // console.log(next)
     return action => {
-      console.log(2222)
-      console.log(action)
-      console.log(dispatch)
+      // console.log(2222)
+      // console.log(action)
+      // console.log(dispatch)
       if (typeof action === 'function') {
         return action(dispatch, getState)
       }
@@ -54,8 +54,8 @@ const thunk = ({dispatch, getState}) => {
 
 const logger = ({dispatch, getState}) => {
   return next => {
-    console.log('logger')
-    console.log(next)
+    // console.log('logger')
+    // console.log(next)
     return action => {
       console.log('+++++++++++++++')
       console.log(next)
@@ -79,7 +79,8 @@ const logger = ({dispatch, getState}) => {
 const store = createStore(
   // counterReducer,
   combineReducers({count: countReducer, count2: countReducer2}),
-  applyMiddleware(logger2, thunk, logger)
+  // applyMiddleware(logger2, thunk, logger)
+  applyMiddleware(thunk)
 )
 
 export default store

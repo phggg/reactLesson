@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import {Provider} from "react-redux";
+import store from "./store/indexT";
 //
 // ReactDOM.render(<App />, document.getElementById("root"));
 
@@ -19,10 +21,12 @@ function f1(arg) {
   console.log("f1", arg);
   // return arg;
 }
+
 function f2(arg) {
   console.log("f2", arg);
   // return arg;
 }
+
 function f3(arg) {
   console.log("f3", arg);
   return arg;
@@ -55,4 +59,9 @@ function compose(...funcs) {
 }
 
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById("root")
+);

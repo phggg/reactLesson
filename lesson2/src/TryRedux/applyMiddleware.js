@@ -10,7 +10,7 @@ const applyMiddleware = (...middlewares) => {
     const middlewareChain = middlewares.map(middleware => middleware(midApi))
     // 重新赋值一个函数
     const dispatch = compose(...middlewareChain)(store.dispatch)
-    console.log(dispatch)
+    // console.log(dispatch)
 
     // 加强store.dispatch
     return {
