@@ -3,10 +3,10 @@ import ReduxPageHooksMy from "./pages/ReduxPageHooksMy";
 
 export default function App(props) {
   return (
-    <div>
-      {/*<ReduxPage />*/}
-      {/*<ReduxPageMy />*/}
-      <ReduxPageHooksMy />
-    </div>
+      <div>
+        <ReduxPageHooksMy />
+        --------------------
+        <ReduxPageMy />
+      </div>
   );
 }
