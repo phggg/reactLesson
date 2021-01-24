@@ -37,13 +37,13 @@ const ReduxPageMy = props => {
     })
   }
 
-  // useEffect(() => {
-  //   // * 重点：有订阅，一定得有取消订阅的操作
-  //   const unSubscribe = store.subscribe(() => {
-  //     setNum(n => n + 1)
-  //   })
-  //   return () => unSubscribe && unSubscribe()
-  // }, [])
+  useEffect(() => {
+    // * 重点：有订阅，一定得有取消订阅的操作
+    const unSubscribe = store.subscribe(() => {
+      setNum(n => n + 1)
+    })
+    return () => unSubscribe && unSubscribe()
+  }, [])
   console.log(props)
 
   return (
