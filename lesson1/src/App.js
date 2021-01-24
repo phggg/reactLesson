@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader'
 import MyRCFieldFormPage from './pages/MyRCFieldFormPage'
 
 
-function App() {
+function AppT() {
   return (
     <div className="App">
       {/* <ContextPage /> */}
