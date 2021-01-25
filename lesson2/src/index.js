@@ -4,7 +4,7 @@ import App from "./App";
 import {Provider} from "./TryReactRedux";
 import store from "./store/indexT";
 //
-// ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<AppT />, document.getElementById("root"));
 
 // const array1 = [1, 2, 3, 4];
 // const reducer = (accumulator, currentValue) => accumulator + currentValue;
