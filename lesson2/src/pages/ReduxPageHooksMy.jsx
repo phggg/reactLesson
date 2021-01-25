@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 // import store from '../store/indexT'
-import {connect, useDispatch, useSelector} from 'react-redux'
-import {bindActionCreators} from "redux";
+import {useSelector, useDispatch} from '../TryReactRedux'
 
 const ReduxPageHooksMy = props => {
   const dispatch = useDispatch()

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 // import store from '../store/indexT'
-import {connect} from 'react-redux'
-import {bindActionCreators} from "redux";
+import {connect} from '../TryReactRedux'
+// import {bindActionCreators} from "redux";
+import {bindActionCreators} from "../TryReactRedux";
 
 const ReduxPageMy = props => {
   const [num, setNum] = useState(0)
@@ -53,11 +54,12 @@ const ReduxPageMy = props => {
       {/*<p>{store.getState().count}</p>*/}
       <p>{props.count}</p>
       <button onClick={add}>add</button>
+      <button onClick={props.add}>addProps</button>
       <button onClick={props.minus}>minusProps</button>
       <button onClick={asyncAdd}>asyncAdd</button>
 
       {/*<p>{store.getState().count2.num}</p>*/}
-      <p>{props.count2.num}</p>
+      <p>{props.count2?.num}</p>
       <button onClick={add2}>add2</button>
     </div>
   )
@@ -69,9 +71,8 @@ export default connect(
 
   // mapDispatchToDispatch
   // {
-  //   minus: () => ({
-  //     type: 'MINUS'
-  //   })
+  //   add: () => ({type: 'ADD'}),
+  //   minus: () => ({type: 'MINUS'})
   // }
   dispatch => {
     let creators = {
