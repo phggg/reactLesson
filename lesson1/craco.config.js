@@ -22,9 +22,9 @@ const CracoVtkPlugin = require('craco-vtk')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const webpack = require('webpack')
-// const Dashboard = require('webpack-dashboard');
-// const DashboardPlugin = require('webpack-dashboard/plugin');
-// const dashboard = new Dashboard();
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const dashboard = new Dashboard();
 
 const path = require('path')
 
@@ -51,7 +51,7 @@ module.exports = {
             cwd: process.cwd(),
           }),
           // webpack-dev-server 强化插件
-          // new DashboardPlugin(dashboard.setData),
+          new DashboardPlugin(dashboard.setData),
           // new webpack.HotModuleReplacementPlugin(),
         ], [],
       ),
